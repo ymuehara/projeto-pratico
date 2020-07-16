@@ -1,0 +1,40 @@
+{% extends "registros/base.html" %}
+{% csrf_token %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-9">
+            <h1>Bem vindo {{ user.username }}</h1>
+        </div>
+        <div class="col-md-3">
+            <a class="btn btn-primary btn-block" href="#"><i class="fa fa-plus-circle"></i> Adicionar Log</a>
+        </div>
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Level</th>
+                    <th>Log</th>
+                    <th>Eventos</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for log in logs %}
+                    <tr>
+                        <td>
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <a href="{% url 'detail-central' log.id %}" type="submit" class="btn btn-secondary">teste</a>
+                            </div>
+                        </td>
+                        <td>{{ log.level }}</td>
+                        <td>
+                            {{ log.descricao }} <br>
+                            {{ log.origem }} <br>
+                            {{ log.data|date:"d/m/Y" }} {{ log.data|time:"H:i" }}
+                        </td>
+                        <td>{{ log.event }}</td>
+                    </tr>
+                {% endfor %}
+            </body>
+        </table>
+    </div>
+{% endblock content %}

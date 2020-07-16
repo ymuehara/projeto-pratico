@@ -1,0 +1,27 @@
+{% extends "registros/base.html" %}
+{% csrf_token %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-9">
+            <h4>Bem vindo {{ user.username }}</h4>
+        </div>
+        <div class="col-md-3">
+            <a class="btn btn-secondary btn-block" href="{% url 'registros-home' %}"><i class="fa fa-plus-circle"></i> Voltar</a>
+        </div>
+        <div class="row">
+            <div class="col-md-9">
+                <br>
+                <h1 class="article-title">Erro no {{ log.origem }} em  {{ log.data|date:"d/m/Y" }} {{ log.data|time:"H:i" }}</h1>
+                <p> {{ log.descricao }} </p>
+                <h2> Detalhes </h2> <br>
+                <p> {{ log.detalhes }} </p>
+            </div>
+            <div class="col-sm-90">
+                <br>
+                <h3> Eventos </h3>
+                <p> {{ log.event }} </p> <br>
+                <p> token {{ user.username }} </p>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
