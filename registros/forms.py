@@ -1,7 +1,7 @@
 from django import forms
-from registros.models import Erro
+from registros.models import Log
 
-class ErroModelForm(forms.ModelForm):
+class LogModelForm(forms.ModelForm):
     class Meta:
-        model = Erro
-        fields = ['level', 'descricao', 'origem', 'detalhes', 'producao', 'data', 'event']
+        model = Log
+        fields = ['level', 'descricao', 'origem', 'detalhes', 'ambiente', 'data', 'event']
