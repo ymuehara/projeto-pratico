@@ -1,0 +1,1 @@
+web: gunicorn projeto-pratico.wsgi --max-requests 1200
