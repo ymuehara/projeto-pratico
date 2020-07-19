@@ -10,5 +10,7 @@ jobs:
     deploy:
       provider: heroku
       app: ymu-codenation-projetofinal
+      api_key:
+        secure: GH_TOKEN
       on: master
       run: "python manage.py migrate"
