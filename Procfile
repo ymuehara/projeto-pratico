@@ -1,1 +1,1 @@
-web: gunicorn projeto-pratico.wsgi --max-requests 1200
+web: gunicorn central_de_erros.wsgi --max-requests 1200
