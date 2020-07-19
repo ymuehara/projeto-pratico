@@ -47,15 +47,15 @@ class LogDeleteView(LoginRequiredMixin, DeleteView):
 
 #API views
 class LogApiViewSet(viewsets.ModelViewSet):
-    #authentication_classes = [TokenAuthentication]
-    #permission_classes = [IsAuthenticated]
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
     queryset = Log.objects.all()
     serializer_class = LogModelSerializer
 
 
 class LogListAPIView(generics.ListAPIView):
-    #authentication_classes = [TokenAuthentication]
-    #permission_classes = [IsAuthenticated]
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
     queryset = Log.objects.all()
     serializer_class = LogModelSerializer
     filter_backends = [SearchFilter, OrderingFilter]
