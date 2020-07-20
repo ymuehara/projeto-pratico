@@ -12,6 +12,6 @@ jobs:
         provider: heroku
         app: ymu-codenation-projetofinal
         api_key:
-          secure: $HEROKU_API_KEY
+          secure: HEROKU_API_KEY
         on: master
         run: "python manage.py migrate"
