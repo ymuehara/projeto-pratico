@@ -4,13 +4,14 @@ python:
 stages:
   - name: deploy
 jobs:
-  - stage: deploy
-    name: Heroku Deploy
-    script: /bin/true
-    deploy:
-      provider: heroku
-      app: ymu-codenation-projetofinal
-      api_key:
-        secure: GH_TOKEN
-      on: master
-      run: "python manage.py migrate"
+  include:
+    - stage: deploy
+      name: Heroku Deploy
+      script: /bin/true
+      deploy:
+        provider: heroku
+        app: ymu-codenation-projetofinal
+        api_key:
+          secure: $HEROKU_API_KEY
+        on: master
+        run: "python manage.py migrate"
